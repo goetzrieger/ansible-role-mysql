@@ -12,7 +12,11 @@
   set_fact:
     mysql_packages: "{{ __mysql_packages | list }}"
   when: mysql_packages is not defined
-
+  
+- name: Debug   
+  debug: 
+    var: mysql_packages: {{ mysql_packages }}
+    
 - name: Define mysql_daemon.
   set_fact:
     mysql_daemon: "{{ __mysql_daemon }}"
